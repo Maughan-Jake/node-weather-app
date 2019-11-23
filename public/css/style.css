@@ -1,74 +1,77 @@
-/*
-  Styles from this codepen:
-  https://codepen.io/official_naveen/pen/rgknI
-*/
+/************************************************ 
+*General
+*************************************************/
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
 
+body,
+#slide-wrapper,
+.slide-content {
+  margin: 0;
+  padding: 0;
+  font-family: 'Ubuntu', sans-serif;
+  width: 100%;
+  height: 100vh;
+}
+
+/* I customized the wicked cool background on my homepage at SVGBackgrounds.com.  */
 body {
-    width: 800px;
-    margin: 0 auto;
-    font-family: 'Open Sans', sans-serif;
-  }
-  .container {
-    width: 600px;
-    margin: 0 auto;
-  }
-  fieldset {
-    display: block;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
-    -webkit-padding-before: 0em;
-    -webkit-padding-start: 0em;
-    -webkit-padding-end: 0em;
-    -webkit-padding-after: 0em;
-    border: 0px;
-    border-image-source: initial;
-    border-image-slice: initial;
-    border-image-width: initial;
-    border-image-outset: initial;
-    border-image-repeat: initial;
-    min-width: -webkit-min-content;
-    padding: 30px;
-  }
-  .ghost-input, p {
-    display: block;
-    font-weight:300;
-    width: 100%;
-    font-size: 25px;
-    border:0px;
-    outline: none;
-    width: 100%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    color: #4b545f;
-    background: #fff;
-    font-family: Open Sans,Verdana;
-    padding: 10px 15px;
-    margin: 30px 0px;
-    -webkit-transition: all 0.1s ease-in-out;
-    -moz-transition: all 0.1s ease-in-out;
-    -ms-transition: all 0.1s ease-in-out;
-    -o-transition: all 0.1s ease-in-out;
-    transition: all 0.1s ease-in-out;
-  }
-  .ghost-input:focus {
-    border-bottom:1px solid #ddd;
-  }
-  .ghost-button {
-    background-color: transparent;
-    border:2px solid #ddd;
-    padding:10px 30px;
-    width: 100%;
-    min-width: 350px;
-    -webkit-transition: all 0.1s ease-in-out;
-    -moz-transition: all 0.1s ease-in-out;
-    -ms-transition: all 0.1s ease-in-out;
-    -o-transition: all 0.1s ease-in-out;
-    transition: all 0.1s ease-in-out;
-  }
-  .ghost-button:hover {
-    border:2px solid #515151;
-  }
-  p {
-    color: #E64A19;
-  }
+  background-color: #ff9d00;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg stroke='%23000' stroke-width='66.7' stroke-opacity='0.05' %3E%3Ccircle fill='%23ff9d00' cx='0' cy='0' r='1800'/%3E%3Ccircle fill='%23fb8d17' cx='0' cy='0' r='1700'/%3E%3Ccircle fill='%23f47d24' cx='0' cy='0' r='1600'/%3E%3Ccircle fill='%23ed6e2d' cx='0' cy='0' r='1500'/%3E%3Ccircle fill='%23e35f34' cx='0' cy='0' r='1400'/%3E%3Ccircle fill='%23d85239' cx='0' cy='0' r='1300'/%3E%3Ccircle fill='%23cc453e' cx='0' cy='0' r='1200'/%3E%3Ccircle fill='%23be3941' cx='0' cy='0' r='1100'/%3E%3Ccircle fill='%23b02f43' cx='0' cy='0' r='1000'/%3E%3Ccircle fill='%23a02644' cx='0' cy='0' r='900'/%3E%3Ccircle fill='%23901e44' cx='0' cy='0' r='800'/%3E%3Ccircle fill='%23801843' cx='0' cy='0' r='700'/%3E%3Ccircle fill='%236f1341' cx='0' cy='0' r='600'/%3E%3Ccircle fill='%235e0f3d' cx='0' cy='0' r='500'/%3E%3Ccircle fill='%234e0c38' cx='0' cy='0' r='400'/%3E%3Ccircle fill='%233e0933' cx='0' cy='0' r='300'/%3E%3Ccircle fill='%232e062c' cx='0' cy='0' r='200'/%3E%3Ccircle fill='%23210024' cx='0' cy='0' r='100'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  width: 100%;
+}
+
+.container {
+  width: 600px;
+  margin: 0 auto;
+}
+
+fieldset {
+  display: block;
+  border: 0px;
+  padding: 30px;
+}
+
+.ghost-input,
+p {
+  display: block;
+  font-weight: 300;
+  width: 100%;
+  font-size: 25px;
+  border: 0px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  color: #4b545f;
+  background: #fff;
+  font-family: Open Sans, Verdana;
+  padding: 10px 15px;
+  margin: 30px 0px;
+  transition: all 0.1s ease-in-out;
+  border-radius: 5px;
+}
+
+.ghost-input:focus {
+  border-bottom: 1px solid #ddd;
+}
+
+.ghost-button {
+  background-color: transparent;
+  border: 2px solid #ddd;
+  padding: 10px 30px;
+  width: 100%;
+  min-width: 350px;
+  color: #ddd;
+  font-size: 18px;
+  transition: all 0.1s ease-in-out;
+  border-radius: 5px;
+}
+
+.ghost-button:hover {
+  border: 2px solid #515151;
+}
+
+p {
+  color: #E64A19;
+}
