@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
     res.render('index', {weather: null, error: null});
 })
 
-app.post('/', weatherFunctions.getWeather)
+app.post('/', weatherFunctions.getWeatherAjax)
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
