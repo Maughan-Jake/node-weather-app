@@ -42,24 +42,28 @@ function currentWeather(req, res) {
     });
 }
 
+  // Example of how Ajax calls work using fetch and returning the Json Data.
+  // fetch(
+  //   `https://api.openweathermap.org/data/2.5/weather?q=New York&units=imperial&appid=28af81603ac21f0fe4c75478dad21818`
+  //   )
+  //   .then(res => res.json())
+  //   .then(data => console.log(data));
 function getWeatherAjax() {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=New York&units=imperial&appid=28af81603ac21f0fe4c75478dad21818`).then(res => res.json()).then(data => console.log(data));
-  
-      document
+  document
     .getElementById("getWeather")
     .addEventListener("click", () => {
       handleGetWeather();
     });
-  
+
   async function handleGetWeather() {
     const apiKey = "28af81603ac21f0fe4c75478dad21818";
     const locationEl = document.getElementById("location");
     const weatherDataEl = document.getElementById("weatherData");
-  
+
     const results = await currentWeather(locationEl.value, apiKey);
     weatherDataEl.innerHTML = results;
   }
-  
+
   async function currentWeather(city, apiKey) {
     if (city === "") {
       return "Please enter a location!";
@@ -78,9 +82,6 @@ function getWeatherAjax() {
     }
   }
 }
-
-
-
 
 
 module.exports = {
