@@ -4,68 +4,35 @@
 <head>
   <meta charset="utf-8">
   <title>Simple Weather</title>
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="../public/css/style.css">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+  <!-- <script src="../public/typeAhead.js" async defer></script>
+  <script src="../public/scripts.js" async defer></script> -->
 </head>
 
 <body>
   <div class="container">
     <input name="city" type="text" class="ghost-input" id="location" placeholder="Enter a City" required>
     <button id="getWeather" class="ghost-button">Get Weather</button>
+  </div>
 
-    <div>
-      <h1 id="weatherData"></h1>
-    </div>
+  <div class="container">
+    <section id="weatherData"></section>
+  </div>
 
-    <!-- <% if(weather !== null){ %>
+  <div class="content">
+    <section id="weatherForecast"></section>
+  </div>
+
+  <% if(weather !== null){ %>
           <p><%= weather %></p>
         <% } %>
 
         <% if(error !== null){ %>
           <p><%= error %></p>
-        <% } %> -->
+        <% } %>
 
 </body>
-<script>
-  // Example of how Ajax calls work using fetch and returning the Json Data.
-  // fetch(
-  //   `https://api.openweathermap.org/data/2.5/weather?q=New York&units=imperial&appid=28af81603ac21f0fe4c75478dad21818`
-  //   )
-  //   .then(res => res.json())
-  //   .then(data => console.log(data));
-
-  document
-    .getElementById("getWeather")
-    .addEventListener("click", () => {
-      handleGetWeather();
-    });
-
-  async function handleGetWeather() {
-    const apiKey = "28af81603ac21f0fe4c75478dad21818";
-    const locationEl = document.getElementById("location");
-    const weatherDataEl = document.getElementById("weatherData");
-
-    const results = await currentWeather(locationEl.value, apiKey);
-    weatherDataEl.innerHTML = results;
-  }
-
-  async function currentWeather(city, apiKey) {
-    if (city === "") {
-      return "Please enter a location!";
-    }
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
-    try {
-      const res = await fetch(url);
-      const weather = await res.json();
-      const temp = weather.main.temp;
-      const name = weather.name;
-      const minTemp = weather.main.temp_min;
-      const maxTemp = weather.main.temp_max;
-      return `It's ${temp} degrees in ${name}! The low for today will be ${minTemp} degrees with a high of ${maxTemp}`;
-    } catch (err) {
-      return "Error, please try again";
-    }
-  }
-</script>
+<script src="../public/ajax.js"></script>
 
 </html>

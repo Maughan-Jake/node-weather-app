@@ -59,9 +59,12 @@ function getWeatherAjax() {
     const apiKey = "28af81603ac21f0fe4c75478dad21818";
     const locationEl = document.getElementById("location");
     const weatherDataEl = document.getElementById("weatherData");
+    const weatherForecastEl = document.getElementById("weatherForecast");
 
-    const results = await currentWeather(locationEl.value, apiKey);
-    weatherDataEl.innerHTML = results;
+    const weatherDataResults = await currentWeather(locationEl.value, apiKey);
+    const weatherForecastResults = await weatherForecast(locationEl.value, apiKey);
+    weatherDataEl.innerHTML = weatherDataResults;
+    weatherForecastEl.innerHTML = weatherForecastResults;
   }
 
   async function currentWeather(city, apiKey) {
@@ -81,7 +84,25 @@ function getWeatherAjax() {
       return "Error, please try again";
     }
   }
+
+  async function weatherForecast(city, apiKey) {
+    let forecastUrl = `https://api.openweathermap.org/data/2.5/forecast/?q=${city}&APPID=${apiKey}&units=imperial`;
+    try {
+      const res = await fetch(url);
+      const weather = await res.json();
+      console.log(weather)
+      const temp = weather.list[0].main.temp;
+      // const name = weather.name;
+      // const minTemp = weather.main.temp_min;
+      // const maxTemp = weather.main.temp_max;
+      return `${temp} `;
+    } catch (err) {
+      return "Error, please try again";
+    }
+  }
 }
+
+
 
 
 module.exports = {
